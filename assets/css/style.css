@@ -1,0 +1,13 @@
+.a-row {
+  background-color: lightblue;
+}
+h1 {
+  font-size: 3rem;
+}
+.card {
+  width:90%;
+  height: 90%;
+  background-image: url("../images/lfz-card.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
