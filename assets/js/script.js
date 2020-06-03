@@ -17,6 +17,9 @@ var gamesPlayedE = document.querySelector(".gamesPlayed");
 var attemptsE = document.querySelector(".attempts");
 var accuracy = document.querySelector(".accuracy");
 
+var reset = document.querySelector("#reset");
+reset.addEventListener("click", resetGame);
+
 function handleClick (event) {
   if (event.target.className.indexOf("card-back") === -1) {
     return;
@@ -63,10 +66,30 @@ function displayStats () {
   }
 
 function calculateAccuracy (attempts, matches) {
-  if(attempts === 0){
+  if(!attempts){
     return "0%";
   }else {
     var per = Math.trunc((matches / attempts) * 100);
     return per + "%";
+  }
+}
+
+function resetGame () {
+  attempts = 0;
+  matches = 0;
+  gamesPlayed++;
+  gamesPlayedE.textContent = gamesPlayed;
+  attemptsE.textContent = attempts;
+  accuracy.textContent = calculateAccuracy();
+  resetCards();
+  modal.classList.add("hidden");
+}
+
+
+function resetCards () {
+  var hiddenCards = document.querySelectorAll(".card-back");
+
+  for (let i = 0; i < hiddenCards.length; i++) {
+    hiddenCards[i].classList.remove("hidden");
   }
 }
