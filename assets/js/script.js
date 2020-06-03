@@ -128,3 +128,26 @@ function shuffle () {
     cardFront[i].className = "card-front " + logos[i];
   }
 }
+
+function create () {
+  for(let i=0; i<logos.length; i++){
+    if(i%6 === 0) {
+      var gameCrow = document.createElement("div");
+      gameCrow.className = "game-c-row";
+    }
+    var cardDiv = document.createElement("div");
+    cardDiv.className = "card";
+    gameCrow.append(cardDiv);
+
+    var cardFdiv = document.createElement("div");
+    cardFdiv.className = "card-front " + logos[i];
+    cardDiv.append(cardFdiv);
+
+    var cardBdiv = document.createElement("div");
+    cardBdiv.className = "card-back";
+    cardDiv.append(cardBdiv);
+
+    gameCards.append(gameCrow);
+  }
+}
+create();
