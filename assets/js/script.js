@@ -6,6 +6,11 @@ var secondCardClicked;
 var firstCardClasses;
 var secondCardClasses;
 
+var maxMatch = 3;
+var matches = 0;
+
+var modal = document.querySelector(".modal-overlay");
+
 function handleClick (event) {
   if (event.target.className.indexOf("card-back") === -1) {
     return;
@@ -21,10 +26,15 @@ function handleClick (event) {
     secondCardClasses = secondCardClicked.previousElementSibling.className;
     gameCards.removeEventListener("click", handleClick);
     if(firstCardClasses === secondCardClasses) {
-      console.log("match");
+      matches++;
       gameCards.addEventListener("click", handleClick);
       firstCardClicked = null;
       secondCardClicked = null;
+      console.log(matches);
+      if(matches === maxMatch){
+        console.log("you win!");
+        modal.classList.remove("hidden");
+      }
     }else {
       console.log("do not match")
       setTimeout(function () {
