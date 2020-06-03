@@ -1,6 +1,11 @@
 var gameCards = document.querySelector("#gameCards");
 gameCards.addEventListener("click", handleClick);
 
+var firstCardClicked;
+var secondCardClicked;
+var firstCardClasses;
+var secondCardClasses;
+
 function handleClick (event) {
   if (event.target.className.indexOf("card-back") === -1) {
     return;
@@ -32,8 +37,3 @@ function handleClick (event) {
     }
   }
 }
-
-var firstCardClicked;
-var secondCardClicked;
-var firstCardClasses;
-var secondCardClasses;
