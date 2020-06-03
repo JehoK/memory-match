@@ -82,6 +82,7 @@ function resetGame () {
   attemptsE.textContent = attempts;
   accuracy.textContent = calculateAccuracy();
   resetCards();
+  shuffle();
   modal.classList.add("hidden");
 }
 
@@ -91,5 +92,39 @@ function resetCards () {
 
   for (let i = 0; i < hiddenCards.length; i++) {
     hiddenCards[i].classList.remove("hidden");
+  }
+}
+
+var logos = [
+  "js-logo",
+  "css-logo",
+  "docker-logo",
+  "gitHub-logo",
+  "html-logo",
+  "mysql-logo",
+  "node-logo",
+  "php-logo",
+  "react-logo",
+  "js-logo",
+  "css-logo",
+  "docker-logo",
+  "gitHub-logo",
+  "html-logo",
+  "mysql-logo",
+  "node-logo",
+  "php-logo",
+  "react-logo"
+]
+
+function shuffle () {
+  var cardFront = document.querySelectorAll(".card-front");
+  for(let i=0; i<logos.length; i++) {
+    var random = Math.floor(Math.random() * logos.length) + 1;
+    var holder = logos[i];
+    logos[i] = logos[random];
+    logos[random] = holder;
+  }
+  for (let i=0; i<cardFront.length; i++) {
+    cardFront[i].className = "card-front " + logos[i];
   }
 }
