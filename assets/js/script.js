@@ -54,7 +54,7 @@ function handleClick (event) {
         firstCardClicked = null;
         secondCardClicked = null;
         gameCards.addEventListener("click", handleClick);
-      }, 1500)
+      }, 500)
     }
   }
   displayStats();
@@ -96,30 +96,30 @@ function resetCards () {
 }
 
 var logos = [
-  "js-logo",
-  "css-logo",
-  "docker-logo",
-  "gitHub-logo",
-  "html-logo",
-  "mysql-logo",
-  "node-logo",
-  "php-logo",
-  "react-logo",
-  "js-logo",
-  "css-logo",
-  "docker-logo",
-  "gitHub-logo",
-  "html-logo",
-  "mysql-logo",
-  "node-logo",
-  "php-logo",
-  "react-logo"
+  "alesso",
+  "armin",
+  "avicii",
+  "charlotte",
+  "daft",
+  "eric",
+  "giuseppe",
+  "kygo",
+  "martin",
+  "alesso",
+  "armin",
+  "avicii",
+  "charlotte",
+  "daft",
+  "eric",
+  "giuseppe",
+  "kygo",
+  "martin"
 ]
 
 function shuffle () {
   var cardFront = document.querySelectorAll(".card-front");
   for(let i=0; i<logos.length; i++) {
-    var random = Math.floor(Math.random() * logos.length) + 1;
+    var random = Math.floor(Math.random() * logos.length);
     var holder = logos[i];
     logos[i] = logos[random];
     logos[random] = holder;
@@ -134,6 +134,7 @@ function create () {
     if(i%6 === 0) {
       var gameCrow = document.createElement("div");
       gameCrow.className = "game-c-row";
+      gameCards.append(gameCrow);
     }
     var cardDiv = document.createElement("div");
     cardDiv.className = "card";
@@ -147,7 +148,7 @@ function create () {
     cardBdiv.className = "card-back";
     cardDiv.append(cardBdiv);
 
-    gameCards.append(gameCrow);
+
   }
 }
 create();
